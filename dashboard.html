@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResumeSmart | Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="site-page">
+    <div class="app-layout">
+        <aside class="app-sidebar">
+            <a href="dashboard.html" class="site-brand sidebar-brand">
+                <div class="site-brand-mark">RS</div>
+                <div>
+                    <p class="site-brand-name">ResumeSmart</p>
+                    <p class="site-brand-subtitle">Workspace</p>
+                </div>
+            </a>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="sidebar-link sidebar-link-active">Dashboard</a>
+                <a href="upload.html" class="sidebar-link">Upload Resume</a>
+                <a href="results.html" class="sidebar-link">Latest Results</a>
+                <a href="account.html" class="sidebar-link">Account</a>
+            </nav>
+
+            <div class="sidebar-profile-card">
+                <div class="sidebar-avatar-wrap">
+                    <img id="sidebar-avatar" class="sidebar-avatar-image hidden" alt="Profile picture">
+                    <div id="sidebar-avatar-fallback" class="sidebar-avatar-fallback">RS</div>
+                </div>
+                <div>
+                    <p id="sidebar-user-name" class="sidebar-user-name">ResumeSmart User</p>
+                    <p id="sidebar-user-email" class="sidebar-user-email">user@example.com</p>
+                </div>
+            </div>
+
+            <div class="sidebar-footer">
+                <button id="logout-button" type="button" class="secondary-action secondary-action-full">Log Out</button>
+            </div>
+        </aside>
+
+        <main class="app-content">
+            <div class="site-main no-top-padding">
+                <section class="site-grid-two">
+                    <div class="site-card site-card-large">
+                        <p class="site-eyebrow">Overview</p>
+                        <h1 id="welcome-heading" class="site-hero-title">Welcome back</h1>
+                        <p class="site-body-text">
+                            Track resume performance, manage your account, and keep improving your applications with structured feedback.
+                        </p>
+                        <div class="site-actions-row">
+                            <a href="upload.html" class="primary-action">Analyze New Resume</a>
+                            <a href="results.html" class="secondary-action">Open Latest Report</a>
+                        </div>
+                        <div class="site-stats-grid">
+                            <div class="site-stat-card">
+                                <p class="site-stat-number" id="analysis-count">0</p>
+                                <p class="site-stat-label">Analyses saved</p>
+                            </div>
+                            <div class="site-stat-card">
+                                <p class="site-stat-number" id="average-score">0</p>
+                                <p class="site-stat-label">Average score</p>
+                            </div>
+                            <div class="site-stat-card">
+                                <p class="site-stat-number" id="improvement-count">0</p>
+                                <p class="site-stat-label">Suggestions tracked</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="site-card">
+                        <div class="site-card-top">
+                            <div>
+                                <p class="site-eyebrow">Profile</p>
+                                <h2 class="site-section-title">Account snapshot</h2>
+                            </div>
+                            <span id="phone-status-badge" class="site-badge">Unverified</span>
+                        </div>
+                        <div class="site-list-stack">
+                            <div class="site-info-row">
+                                <span>Name</span>
+                                <strong id="profile-name">Demo User</strong>
+                            </div>
+                            <div class="site-info-row">
+                                <span>Email</span>
+                                <strong id="profile-email">demo@resumesmart.app</strong>
+                            </div>
+                            <div class="site-info-row">
+                                <span>Provider</span>
+                                <strong id="profile-provider">Email</strong>
+                            </div>
+                            <div class="site-info-row">
+                                <span>Member since</span>
+                                <strong id="member-since">--</strong>
+                            </div>
+                            <div class="site-info-row">
+                                <span>Phone</span>
+                                <strong id="profile-phone">Not added</strong>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="site-grid-two secondary-grid">
+                    <div class="site-card">
+                        <div class="site-card-top">
+                            <div>
+                                <p class="site-eyebrow">Recent Activity</p>
+                                <h2 class="site-section-title">Previous resume analyses</h2>
+                            </div>
+                            <a href="upload.html" class="secondary-action">New Upload</a>
+                        </div>
+                        <div id="recent-analyses" class="site-list-stack"></div>
+                    </div>
+
+                    <div class="site-stack">
+                        <div class="site-card">
+                            <p class="site-eyebrow">Checklist</p>
+                            <h2 class="site-section-title">What strong resumes usually include</h2>
+                            <div class="site-list-stack compact-stack">
+                                <div class="site-info-row"><span>Impact-driven bullet points</span><strong>High priority</strong></div>
+                                <div class="site-info-row"><span>Role-aligned keywords</span><strong>Critical</strong></div>
+                                <div class="site-info-row"><span>Clear project outcomes</span><strong>Recommended</strong></div>
+                                <div class="site-info-row"><span>Readable formatting</span><strong>Required</strong></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        window.RESUMESMART_API_BASE_URL = "http://localhost:5000/api";
+    </script>
+    <script src="api.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>

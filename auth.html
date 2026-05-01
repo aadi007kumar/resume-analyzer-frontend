@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResumeSmart | Account Access</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page">
+    <main class="auth-layout">
+        <section class="auth-intro">
+            <a href="index.html" class="auth-back-link">
+                <span>&larr;</span>
+                <span>Back to home</span>
+            </a>
+
+            <div class="auth-brand">
+                <div class="auth-brand-mark">RS</div>
+                <div>
+                    <p class="auth-brand-name">ResumeSmart</p>
+                    <p class="auth-brand-subtitle">AI Resume Analyzer</p>
+                </div>
+            </div>
+
+            <div class="auth-copy">
+                <p class="auth-eyebrow">Simple Account Access</p>
+                <h1>Sign up, log in, and continue your resume analysis from one place.</h1>
+                <p>
+                    New users can create an account, existing users can log in, and password recovery stays in the same flow.
+                    Google sign-in can use Google's real account chooser when a valid client ID is configured.
+                </p>
+            </div>
+
+            <div class="auth-highlights">
+                <div class="auth-highlight-card">
+                    <h2>Create account</h2>
+                    <p>Start with your name, email, and password to access the dashboard and save reports.</p>
+                </div>
+                <div class="auth-highlight-card">
+                    <h2>Log in quickly</h2>
+                    <p>Use the same form to return to your dashboard and continue from your last analysis.</p>
+                </div>
+                <div class="auth-highlight-card">
+                    <h2>Google account chooser</h2>
+                    <p>When Google OAuth is configured, users can pick one of their Google accounts directly from Google's chooser.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="auth-card-shell">
+            <div class="auth-card">
+                <div id="auth-panel">
+                    <div class="auth-card-header">
+                        <div>
+                            <p class="auth-eyebrow">Account Access</p>
+                            <h2 id="auth-heading">Create your account</h2>
+                            <p id="auth-subheading" class="auth-subheading">
+                                Create an account first to upload resumes, track scores, and save analysis history.
+                            </p>
+                        </div>
+                        <div class="auth-tabs" role="tablist" aria-label="Authentication mode">
+                            <button id="tab-signup" type="button" class="auth-tab auth-tab-active" aria-selected="true">Sign Up</button>
+                            <button id="tab-login" type="button" class="auth-tab" aria-selected="false">Log In</button>
+                        </div>
+                    </div>
+
+                    <form id="auth-form" class="auth-form">
+                        <div id="signup-name-row" class="auth-grid-two">
+                            <div>
+                                <label for="first-name" class="input-label">First Name</label>
+                                <input id="first-name" type="text" placeholder="Pawan" class="input-field">
+                            </div>
+                            <div>
+                                <label for="last-name" class="input-label">Last Name</label>
+                                <input id="last-name" type="text" placeholder="Kumar" class="input-field">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="auth-email" class="input-label">Email Address</label>
+                            <input id="auth-email" type="email" placeholder="name@example.com" class="input-field">
+                        </div>
+
+                        <div>
+                            <div class="auth-inline-label">
+                                <label for="auth-password" class="input-label input-label-inline">Password</label>
+                                <button id="show-recovery" type="button" class="auth-link-button">Forgot password?</button>
+                            </div>
+                            <input id="auth-password" type="password" placeholder="Create a password" class="input-field">
+                        </div>
+
+                        <div id="confirm-password-wrap">
+                            <label for="confirm-password" class="input-label">Confirm Password</label>
+                            <input id="confirm-password" type="password" placeholder="Re-enter your password" class="input-field">
+                        </div>
+
+                        <label id="terms-wrap" class="auth-terms">
+                            <input id="terms-checkbox" type="checkbox">
+                            <span>I agree to the Terms of Service and Privacy Policy.</span>
+                        </label>
+
+                        <button id="auth-submit" type="submit" class="primary-action primary-action-full">
+                            Create Account
+                        </button>
+                    </form>
+
+                    <div class="auth-divider">
+                        <span></span>
+                        <p>or continue with</p>
+                        <span></span>
+                    </div>
+
+                    <div class="auth-social-grid">
+                        <div class="social-provider-action google-auth-block">
+                            <button type="button" id="google-login-fallback" class="social-button social-google">
+                                <span class="social-icon social-google-icon">G</span>
+                                <span>Sign up with Google</span>
+                            </button>
+                        </div>
+
+                        <div class="social-provider-action">
+                            <button type="button" id="linkedin-login" class="social-button social-linkedin">
+                                <span class="social-icon social-linkedin-icon">in</span>
+                                <span>Sign up with LinkedIn</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="recovery-panel" class="hidden">
+                    <div class="auth-card-header auth-card-header-stack">
+                        <div>
+                            <p class="auth-eyebrow">Password Recovery</p>
+                            <h2>Reset your password</h2>
+                            <p class="auth-subheading">
+                                Enter your registered email, request a verification code, and then set a new password.
+                            </p>
+                        </div>
+                    </div>
+
+                    <form id="recovery-form" class="auth-form">
+                        <div>
+                            <label for="reset-email" class="input-label">Registered Email</label>
+                            <input id="reset-email" type="email" placeholder="name@example.com" class="input-field">
+                        </div>
+
+                        <div class="auth-code-row">
+                            <div>
+                                <label for="reset-code" class="input-label">Verification Code</label>
+                                <input id="reset-code" type="text" placeholder="6-digit code" class="input-field">
+                            </div>
+                            <button id="send-code" type="button" class="secondary-action auth-code-button">Send Code</button>
+                        </div>
+
+                        <div>
+                            <label for="new-password" class="input-label">New Password</label>
+                            <input id="new-password" type="password" placeholder="Create a new password" class="input-field">
+                        </div>
+
+                        <div>
+                            <label for="confirm-new-password" class="input-label">Confirm New Password</label>
+                            <input id="confirm-new-password" type="password" placeholder="Re-enter the new password" class="input-field">
+                        </div>
+
+                        <button type="submit" class="primary-action primary-action-full">Verify and Reset Password</button>
+                        <button id="back-to-auth" type="button" class="secondary-action secondary-action-full">Back to sign up and log in</button>
+                    </form>
+                </div>
+
+                <div id="auth-feedback" class="auth-feedback hidden"></div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        window.RESUMESMART_GOOGLE_CLIENT_ID = "888997354563-kahrspsaps7l3cotrhad9vr097lt6qnj.apps.googleusercontent.com";
+        window.RESUMESMART_LINKEDIN_CLIENT_ID = "8658dxfb8jzuwm";
+        window.RESUMESMART_API_BASE_URL = "http://localhost:5000/api";
+    </script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="api.js"></script>
+    <script src="auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResumeSmart | Upload Resume</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="site-page">
+    <div class="app-layout">
+        <aside class="app-sidebar">
+            <a href="dashboard.html" class="site-brand sidebar-brand">
+                <div class="site-brand-mark">RS</div>
+                <div>
+                    <p class="site-brand-name">ResumeSmart</p>
+                    <p class="site-brand-subtitle">Workspace</p>
+                </div>
+            </a>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="sidebar-link">Dashboard</a>
+                <a href="upload.html" class="sidebar-link sidebar-link-active">Upload Resume</a>
+                <a href="results.html" class="sidebar-link">Latest Results</a>
+                <a href="account.html" class="sidebar-link">Account</a>
+            </nav>
+        </aside>
+
+        <main class="app-content">
+            <div class="site-main no-top-padding">
+                <section class="site-grid-two upload-grid">
+                    <div class="site-card site-card-large">
+                        <p class="site-eyebrow">Resume Submission</p>
+                        <h1 class="site-hero-title">Upload a resume for analysis</h1>
+                        <p class="site-body-text">
+                            Add the role you are targeting, include job context, and upload your latest resume file to generate a structured report.
+                        </p>
+
+                        <form id="upload-form" class="site-form">
+                            <div class="site-form-two">
+                                <div>
+                                    <label for="target-role" class="input-label">Target Role</label>
+                                    <input id="target-role" type="text" placeholder="Frontend Developer" class="input-field">
+                                </div>
+                                <div>
+                                    <label for="company-name" class="input-label">Target Company</label>
+                                    <input id="company-name" type="text" placeholder="Acme Labs" class="input-field">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="job-description" class="input-label">Job Description Highlights</label>
+                                <textarea id="job-description" rows="5" placeholder="Paste key responsibilities, required skills, or hiring priorities here." class="input-field site-textarea"></textarea>
+                            </div>
+
+                            <div>
+                                <p class="input-label">Resume File</p>
+                                <label id="dropzone" for="resume-file" class="site-dropzone">
+                                    <input id="resume-file" type="file" accept=".pdf,.doc,.docx" class="hidden">
+                                    <span class="site-dropzone-icon">+</span>
+                                    <span class="site-dropzone-title">Drag and drop your resume here</span>
+                                    <span class="site-dropzone-copy">or click to browse PDF, DOC, or DOCX files</span>
+                                </label>
+                            </div>
+
+                            <div id="file-preview" class="hidden site-preview-card">
+                                <div class="site-card-top">
+                                    <div>
+                                        <p class="site-eyebrow">Selected File</p>
+                                        <h2 id="file-name" class="site-section-title top-tight"></h2>
+                                        <p id="file-meta" class="site-small-text"></p>
+                                    </div>
+                                    <button id="remove-file" type="button" class="secondary-action">Remove</button>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="primary-action">Analyze Resume</button>
+                        </form>
+
+                        <div id="upload-feedback" class="auth-feedback hidden"></div>
+                    </div>
+
+                    <div class="site-stack">
+                        <div class="site-card">
+                            <p class="site-eyebrow">What Gets Scored</p>
+                            <div class="site-list-stack compact-stack">
+                                <div class="site-info-row"><span>ATS compatibility</span><strong>Keywords, structure, readability</strong></div>
+                                <div class="site-info-row"><span>Content strength</span><strong>Impact, clarity, specificity</strong></div>
+                                <div class="site-info-row"><span>Role alignment</span><strong>Target-role matching</strong></div>
+                            </div>
+                        </div>
+
+                        <div class="site-card">
+                            <p class="site-eyebrow">Progress</p>
+                            <h2 class="site-section-title">Analysis status</h2>
+                            <div class="site-progress-card">
+                                <div class="site-progress-top">
+                                    <span>Current progress</span>
+                                    <strong id="progress-percent">0%</strong>
+                                </div>
+                                <div class="site-progress-track">
+                                    <div id="progress-bar" class="site-progress-fill" style="width: 0%"></div>
+                                </div>
+                                <p id="progress-text" class="site-small-text top-gap-sm">Waiting for a resume upload.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        window.RESUMESMART_API_BASE_URL = "http://localhost:5000/api";
+    </script>
+    <script src="api.js"></script>
+    <script src="upload.js"></script>
+</body>
+</html>

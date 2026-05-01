@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResumeSmart | Account</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="site-page">
+    <div class="app-layout">
+        <aside class="app-sidebar">
+            <a href="dashboard.html" class="site-brand sidebar-brand">
+                <div class="site-brand-mark">RS</div>
+                <div>
+                    <p class="site-brand-name">ResumeSmart</p>
+                    <p class="site-brand-subtitle">Workspace</p>
+                </div>
+            </a>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="sidebar-link">Dashboard</a>
+                <a href="upload.html" class="sidebar-link">Upload Resume</a>
+                <a href="results.html" class="sidebar-link">Latest Results</a>
+                <a href="account.html" class="sidebar-link sidebar-link-active">Account</a>
+            </nav>
+
+            <div class="sidebar-profile-card">
+                <div class="sidebar-avatar-wrap">
+                    <img id="sidebar-avatar" class="sidebar-avatar-image hidden" alt="Profile picture">
+                    <div id="sidebar-avatar-fallback" class="sidebar-avatar-fallback">RS</div>
+                </div>
+                <div>
+                    <p id="sidebar-user-name" class="sidebar-user-name">ResumeSmart User</p>
+                    <p id="sidebar-user-email" class="sidebar-user-email">user@example.com</p>
+                </div>
+            </div>
+
+            <div class="sidebar-footer">
+                <button id="logout-button" type="button" class="secondary-action secondary-action-full">Log Out</button>
+            </div>
+        </aside>
+
+        <main class="app-content">
+            <div class="site-main no-top-padding">
+                <section class="site-card site-card-large">
+                    <p class="site-eyebrow">Account</p>
+                    <h1 class="site-hero-title">Manage your account</h1>
+                    <p class="site-body-text">
+                        Update profile information, upload a profile picture, verify your phone number, and manage account access from one place.
+                    </p>
+                </section>
+
+                <section class="account-card-grid">
+                    <article class="site-card">
+                        <p class="site-eyebrow">Profile Picture</p>
+                        <h2 class="site-section-title">Upload your photo</h2>
+                        <div class="account-avatar-panel top-gap">
+                            <div class="account-avatar-preview">
+                                <img id="profile-avatar-preview" class="account-avatar-image hidden" alt="Profile picture">
+                                <div id="profile-avatar-fallback" class="account-avatar-fallback">RS</div>
+                            </div>
+                            <form id="avatar-form" class="account-inline-form">
+                                <input id="avatar-file" type="file" accept="image/*" class="input-field">
+                                <button type="submit" class="primary-action">Upload Profile Picture</button>
+                            </form>
+                        </div>
+                    </article>
+
+                    <article class="site-card">
+                        <p class="site-eyebrow">Profile Details</p>
+                        <h2 class="site-section-title">Personal information</h2>
+                        <form id="profile-form" class="site-form top-gap">
+                            <div class="site-form-two">
+                                <div>
+                                    <label for="account-first-name" class="input-label">First Name</label>
+                                    <input id="account-first-name" type="text" class="input-field">
+                                </div>
+                                <div>
+                                    <label for="account-last-name" class="input-label">Last Name</label>
+                                    <input id="account-last-name" type="text" class="input-field">
+                                </div>
+                            </div>
+                            <div>
+                                <label for="account-email" class="input-label">Email</label>
+                                <input id="account-email" type="email" class="input-field" disabled>
+                            </div>
+                            <div class="site-info-row">
+                                <span>Member since</span>
+                                <strong id="member-since">--</strong>
+                            </div>
+                            <button type="submit" class="primary-action">Save Profile</button>
+                        </form>
+                    </article>
+
+                    <article class="site-card">
+                        <p class="site-eyebrow">Mobile Verification</p>
+                        <h2 class="site-section-title">Verify phone number</h2>
+                        <div class="top-gap">
+                            <label for="account-phone" class="input-label">Phone Number</label>
+                            <input id="account-phone" type="text" placeholder="+91 9876543210" class="input-field">
+                        </div>
+                        <div class="phone-status-row">
+                            <span id="phone-status-badge" class="site-badge">Phone Unverified</span>
+                            <span id="phone-verified-indicator" class="phone-verified-indicator hidden">Verified</span>
+                        </div>
+                        <div class="top-gap">
+                            <button id="request-phone-otp" type="button" class="secondary-action">Send OTP</button>
+                        </div>
+                        <div id="otp-card" class="otp-card hidden top-gap">
+                            <div class="otp-header">
+                                <div>
+                                    <p class="site-eyebrow">OTP Verification</p>
+                                    <h3 class="otp-title">Enter the verification code</h3>
+                                </div>
+                            </div>
+                            <div class="account-inline-form">
+                                <input id="phone-otp-input" type="text" placeholder="Enter OTP" class="input-field otp-input">
+                                <button id="verify-phone-otp" type="button" class="primary-action">Verify OTP</button>
+                            </div>
+                            <p id="otp-helper" class="site-small-text">An OTP will appear here in demo mode after you request it.</p>
+                        </div>
+                    </article>
+
+                    <article class="site-card">
+                        <p class="site-eyebrow">Account Actions</p>
+                        <h2 class="site-section-title">Manage access</h2>
+                        <div class="account-actions-stack top-gap">
+                            <a href="auth.html" class="secondary-action">Add New Account</a>
+                            <button id="delete-account-button" type="button" class="danger-action">Delete Account</button>
+                        </div>
+                    </article>
+                </section>
+
+                <div id="account-feedback" class="auth-feedback hidden top-gap"></div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        window.RESUMESMART_API_BASE_URL = "http://localhost:5000/api";
+    </script>
+    <script src="api.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>
