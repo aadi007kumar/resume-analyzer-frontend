@@ -1,5 +1,5 @@
 const ResumeSmartAPI = (() => {
-    const baseUrl = "https://resume-analyzer-backend-h7kz.onrender.com/api";
+    const baseUrl = "https://resume-analyzer-backend-h7kr.onrender.com";
 
     function getToken() {
         return localStorage.getItem("resumeSmartToken") || "";
