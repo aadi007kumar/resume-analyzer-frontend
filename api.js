@@ -1,5 +1,9 @@
 const ResumeSmartAPI = (() => {
+<<<<<<< HEAD
     const baseUrl = window.RESUMESMART_API_BASE_URL || "http://localhost:5000/api";
+=======
+    const baseUrl = "https://resume-analyzer-backend-h7kz.onrender.com/api";
+>>>>>>> ea5214a (frontend deploy fix)
 
     function getToken() {
         return localStorage.getItem("resumeSmartToken") || "";
