@@ -156,7 +156,7 @@ authForm.addEventListener("submit", async (event) => {
                 return;
             }
 
-            const data = await ResumeSmartAPI.request("/auth/signup", {
+            const data = await ResumeSmartAPI.request("/api/auth/signup", {
                 method: "POST",
                 body: JSON.stringify({ firstName, lastName, email, password })
             });
@@ -165,7 +165,7 @@ authForm.addEventListener("submit", async (event) => {
             return;
         }
 
-        const data = await ResumeSmartAPI.request("/auth/login", {
+        const data = await ResumeSmartAPI.request("/api/auth/login", {
             method: "POST",
             body: JSON.stringify({ email, password })
         });
@@ -185,7 +185,7 @@ sendCodeButton.addEventListener("click", async () => {
     }
 
     try {
-        const data = await ResumeSmartAPI.request("/auth/forgot-password/request", {
+        const data = await ResumeSmartAPI.request("/api/auth/forgot-password/request", {
             method: "POST",
             body: JSON.stringify({ email })
         });
@@ -209,7 +209,7 @@ recoveryForm.addEventListener("submit", async (event) => {
     }
 
     try {
-        await ResumeSmartAPI.request("/auth/forgot-password/reset", {
+        await ResumeSmartAPI.request("/api/auth/forgot-password/reset", {
             method: "POST",
             body: JSON.stringify({ email, code, newPassword })
         });
@@ -228,7 +228,7 @@ linkedinLogin.addEventListener("click", () => {
         return;
     }
 
-    window.location.href = `${ResumeSmartAPI.baseUrl}/auth/linkedin/start`;
+    window.location.href = `${ResumeSmartAPI.baseUrl}/api/auth/linkedin/start`;
 });
 
 googleFallback.addEventListener("click", () => {
