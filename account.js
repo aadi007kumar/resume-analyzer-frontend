@@ -74,7 +74,7 @@ function applyAccountUser(user) {
 
 async function loadAccount() {
     try {
-        const { user } = await ResumeSmartAPI.request("/auth/me");
+        const { user } = await ResumeSmartAPI.request("/api/auth/me");
         applyAccountUser(user);
     } catch (error) {
         if (error.message.toLowerCase().includes("token") || error.message.toLowerCase().includes("authentication")) {
@@ -90,7 +90,7 @@ document.getElementById("profile-form").addEventListener("submit", async (event)
     event.preventDefault();
 
     try {
-        const data = await ResumeSmartAPI.request("/auth/profile", {
+        const data = await ResumeSmartAPI.request("/api/auth/profile", {
             method: "PATCH",
             body: JSON.stringify({
                 firstName: document.getElementById("account-first-name").value.trim(),
@@ -119,7 +119,7 @@ document.getElementById("avatar-form").addEventListener("submit", async (event) 
     formData.append("avatar", avatarFile);
 
     try {
-        const data = await ResumeSmartAPI.request("/auth/avatar", {
+        const data = await ResumeSmartAPI.request("/api/auth/avatar", {
             method: "POST",
             body: formData
         });
@@ -140,7 +140,7 @@ document.getElementById("request-phone-otp").addEventListener("click", async () 
     }
 
     try {
-        const data = await ResumeSmartAPI.request("/auth/phone/request-otp", {
+        const data = await ResumeSmartAPI.request("/api/auth/phone/request-otp", {
             method: "POST",
             body: JSON.stringify({ phoneNumber })
         });
@@ -157,7 +157,7 @@ document.getElementById("verify-phone-otp").addEventListener("click", async () =
     const code = document.getElementById("phone-otp-input").value.trim();
 
     try {
-        await ResumeSmartAPI.request("/auth/phone/verify-otp", {
+        await ResumeSmartAPI.request("/api/auth/phone/verify-otp", {
             method: "POST",
             body: JSON.stringify({ phoneNumber, code })
         });
@@ -177,7 +177,7 @@ document.getElementById("delete-account-button").addEventListener("click", async
     }
 
     try {
-        await ResumeSmartAPI.request("/auth/account", { method: "DELETE" });
+        await ResumeSmartAPI.request("/api/auth/account", { method: "DELETE" });
         ResumeSmartAPI.clearSession();
         window.location.href = "auth.html";
     } catch (error) {

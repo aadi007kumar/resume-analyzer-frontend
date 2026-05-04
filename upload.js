@@ -115,7 +115,7 @@ function initializeUploadPage() {
             setProgress(20, "Uploading resume...");
             showUploadFeedback("Resume received. Sending it to the backend now.", "info");
 
-            const data = await ResumeSmartAPI.request("/analyses", {
+            const data = await ResumeSmartAPI.request("/api/analyses", {
                 method: "POST",
                 body: formData
             });

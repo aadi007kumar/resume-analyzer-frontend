@@ -12,7 +12,7 @@ async function loadResults() {
     const resultsContent = document.getElementById("results-content");
 
     try {
-        const path = currentAnalysisId ? `/analyses/${currentAnalysisId}` : "/analyses/latest";
+        const path = currentAnalysisId ? `/api/analyses/${currentAnalysisId}` : "/api/analyses/latest";
         const { analysis: currentAnalysis } = await ResumeSmartAPI.request(path);
 
         resultsContent.classList.remove("hidden");

@@ -56,8 +56,8 @@ function applyUserToUI(user) {
 async function loadDashboard() {
     try {
         const [{ user }, { analyses }] = await Promise.all([
-            ResumeSmartAPI.request("/auth/me"),
-            ResumeSmartAPI.request("/analyses")
+            ResumeSmartAPI.request("/api/auth/me"),
+            ResumeSmartAPI.request("/api//analyses")
         ]);
 
         localStorage.setItem("resumeSmartSession", JSON.stringify(user));
